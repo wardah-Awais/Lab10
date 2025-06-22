@@ -17,9 +17,32 @@ public class ToDoList {
         }
     }
 
+    public void updateTask(int index, String newTask) {
+        if (index >= 0 && index < tasks.size()) {
+            tasks.set(index, newTask);
+            System.out.println("Task updated.");
+        } else {
+            System.out.println("Invalid task index.");
+        }
+    }
+
+    public void removeTask(int index) {
+        if (index >= 0 && index < tasks.size()) {
+            System.out.println("Removed: " + tasks.remove(index));
+        } else {
+            System.out.println("Invalid task index.");
+        }
+    }
+
+    
     public static void main(String[] args) {
         ToDoList todo = new ToDoList();
         todo.addTask("Do homeowrk");
         todo.viewTasks();
+        todo.updateTask(0, "Complete Q5 task (edited)");
+        todo.viewTasks();
+        todo.removeTask(0);
+        todo.viewTasks();
+
     }
 }
